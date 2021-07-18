@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "fairmot"
+version = "0.1.0"
+description = ""
+authors = ["nekanat <nekanat.stock@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.10"
+torch = "^1.9.0"
+Cython = "^0.29.24"
+yacs = "^0.1.8"
+opencv-python = "^4.5.3"
+PyYAML = "^5.4.1"
+cython-bbox = "^0.1.3"
+scipy = "^1.7.0"
+numba = "^0.53.1"
+progress = "^1.5"
+motmetrics = "^1.2.0"
+matplotlib = "^3.4.2"
+lap = "^0.4.0"
+openpyxl = "^3.0.7"
+Pillow = "^8.3.1"
+tensorboardX = "^2.4"
+torchvision = "^0.10.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
