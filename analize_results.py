@@ -22,6 +22,7 @@ def main(args):
         ax.plot(dfid["frame"], dfid["dnorm"])
     ax.set_xlabel("Frame no")
     ax.set_ylabel("Speed(pixel/frame)")
+    # plt.show()
     st.pyplot(fig)
 
 
