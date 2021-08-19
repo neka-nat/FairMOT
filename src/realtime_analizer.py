@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import streamlit as st
 
 import torch
 
@@ -12,6 +13,7 @@ from opts import opts
 
 def main(opt, frame_rate=30, use_cuda=True, show_image=True):
     cap = cv2.VideoCapture(0)
+    image_loc = st.empty()
     tracker = JDETracker(opt, frame_rate=frame_rate)
     timer = Timer()
     img0 = None
@@ -44,10 +46,11 @@ def main(opt, frame_rate=30, use_cuda=True, show_image=True):
         if show_image:
             online_im = vis.plot_tracking(img0, online_tlwhs, online_ids, frame_id=frame_id,
                                           fps=1. / timer.average_time)
-            cv2.imshow('online_im', online_im)
+            image_loc.image(online_im[:, :, ::-1])
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
         frame_id += 1
+    cap.release()
 
 
 if __name__ == "__main__":
