@@ -15,6 +15,7 @@ def main(opt, frame_rate=30, use_cuda=True, show_image=True):
     cap = cv2.VideoCapture(0)
     image_loc = st.empty()
     tracker = JDETracker(opt, frame_rate=frame_rate)
+    chart = st.line_chart(np.array([[0]]))
     timer = Timer()
     img0 = None
     frame_id = 0
@@ -42,6 +43,7 @@ def main(opt, frame_rate=30, use_cuda=True, show_image=True):
                 online_tlwhs.append(tlwh)
                 online_ids.append(tid)
         timer.toc()
+        chart.add_rows(np.array([[len(online_ids)]]))
 
         if show_image:
             online_im = vis.plot_tracking(img0, online_tlwhs, online_ids, frame_id=frame_id,
