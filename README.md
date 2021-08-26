@@ -50,7 +50,9 @@ pip install -r requirements.txt
 ```
 * We use [DCNv2_pytorch_1.7](https://github.com/ifzhang/DCNv2/tree/pytorch_1.7) in our backbone network (pytorch_1.7 branch). Previous versions can be found in [DCNv2](https://github.com/CharlesShang/DCNv2).
 ```
-git clone -b pytorch_1.7 https://github.com/ifzhang/DCNv2.git
+git submodule init
+git submodule sync
+git submodule update
 cd DCNv2
 ./make.sh
 ```
